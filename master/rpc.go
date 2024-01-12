@@ -20,13 +20,14 @@ import (
 	"context"
 	"encoding/gob"
 	"encoding/json"
+	"strings"
+
 	"github.com/zhenghaoz/gorse/base"
 	"github.com/zhenghaoz/gorse/model/click"
 	"github.com/zhenghaoz/gorse/model/ranking"
 	"github.com/zhenghaoz/gorse/protocol"
 	"go.uber.org/zap"
 	"google.golang.org/grpc/peer"
-	"strings"
 )
 
 // Node could be worker node for server node.
@@ -38,8 +39,9 @@ type Node struct {
 }
 
 const (
-	ServerNode = "Server"
-	WorkerNode = "Worker"
+	ServerNode    = "Server"
+	WorkerNode    = "Worker"
+	NonWorkerNode = "NonWorker"
 )
 
 // NewNode creates a node from Context and NodeInfo.
